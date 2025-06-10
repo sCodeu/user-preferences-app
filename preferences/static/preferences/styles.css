@@ -1,49 +1,48 @@
 .rounded-input .webix_el_box {
-    border-radius: 8px !important;
+  border-radius: 8px !important;
 }
 
 .rounded-button button {
-    border-radius: 8px !important;
+  border-radius: 8px !important;
 }
 
 .rounded-window .webix_view {
-    border-radius: 8px !important;
+  border-radius: 8px !important;
 }
 .rounded-box input {
-    border-radius: 8px !important;
+  border-radius: 8px !important;
 }
 
 .rounded-form .webix_view {
-    border-radius: 8px !important;
-    overflow: hidden;
+  border-radius: 8px !important;
+  overflow: hidden;
 }
 
 .save-button button {
-    border-radius: 8px !important;
-    width: 100px !important;
-    margin-left: auto !important;
-    display: block !important;
+  border-radius: 8px !important;
+  width: 100px !important;
+  margin-left: auto !important;
+  display: block !important;
 }
 
 .save-button button:hover {
-    background-color: #5298df !important;
-    color: white !important;
-    cursor: pointer;
+  background-color: #5298df !important;
+  color: white !important;
+  cursor: pointer;
 }
 
 .custom-toolbar-label {
-    font-weight: bold !important;
-    padding-left: 10px !important;
-  }
-  
+  font-weight: bold !important;
+  padding-left: 10px !important;
+}
+
 .logout-button button {
   margin-right: 15px !important;
   padding-right: 10px !important;
 }
 
-.logout-button button :hover{
-    color: white !important;
-    background-color: red !important;
-    cursor: pointer;
+.logout-button button :hover {
+  color: white !important;
+  background-color: red !important;
+  cursor: pointer;
 }
-  

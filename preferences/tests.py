@@ -11,7 +11,7 @@ class PreferenceAPITest(TestCase):
         self.client = APIClient()
         self.client.force_authenticate(user=self.user)
 
-        # Create initial preferences for the user
+        #Initial preferences for the user
         self.pref = UserPreference.objects.create(
             user=self.user,
             email_notifications=True,
