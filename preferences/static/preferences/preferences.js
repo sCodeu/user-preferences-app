@@ -161,10 +161,22 @@ webix.ui({
       multiview: true,
       gravity: 0.1,
       options: [
-        { id: "account", value: "Account Setting" },
-        { id: "notification", value: "Notification Setting" },
-        { id: "theme", value: "Theme Setting" },
-        { id: "privacy", value: "Privacy Setting" },
+        {
+          id: "account",
+          value: "<span class='webix_icon wxi-user'></span> Account",
+        },
+        {
+          id: "notification",
+          value: "<span class='webix_icon wxi-alert'></span> Notification",
+        },
+        {
+          id: "theme",
+          value: "<span class='webix_icon wxi-pencil'></span> Theme",
+        },
+        {
+          id: "privacy",
+          value: "<span class='webix_icon wxi-minus'></span> Privacy",
+        },
       ],
     },
     {
@@ -173,144 +185,194 @@ webix.ui({
         {
           id: "account",
           rows: [
+            { gravity: 1 },
             {
-              view: "form",
-              id: "account_form",
-              responsive: true,
-              rules: {
-                username: webix.rules.isNotEmpty,
-                email: webix.rules.isEmail,
-              },
-              elements: [
+              cols: [
+                { gravity: 1 },
                 {
-                  view: "text",
-                  label: "Username",
-                  name: "username",
-                  css: "rounded-box",
+                  view: "form",
+                  id: "account_form",
+                  width: 600,
+                  padding: 20,
+                  borderless: false,
+                  css: "webix_card",
+                  responsive: true,
+                  rules: {
+                    username: webix.rules.isNotEmpty,
+                    email: webix.rules.isEmail,
+                  },
+                  elements: [
+                    {
+                      view: "text",
+                      label: "Username",
+                      name: "username",
+                      css: "rounded-box",
+                    },
+                    {
+                      view: "text",
+                      label: "Email",
+                      name: "email",
+                      css: "rounded-box",
+                    },
+                    {
+                      view: "button",
+                      value: "Save",
+                      align: "center",
+                      click: savePreferences,
+                      css: "save-button",
+                    },
+                  ],
                 },
-                {
-                  view: "text",
-                  label: "Email",
-                  name: "email",
-                  css: "rounded-box",
-                },
-                {
-                  view: "button",
-                  value: "Save",
-                  align: "center",
-                  click: savePreferences,
-                  css: "save-button",
-                },
+                { gravity: 1 },
               ],
             },
+            { gravity: 1 },
           ],
         },
         {
           id: "notification",
           rows: [
+            { gravity: 1 },
             {
-              view: "form",
-              id: "notification_form",
-              responsive: true,
-              rules: {
-                notification_frequency: webix.rules.isNotEmpty,
-              },
-              elements: [
+              cols: [
+                { gravity: 1 },
                 {
-                  view: "checkbox",
-                  labelRight: "Email Notifications",
-                  name: "email_notifications",
+                  view: "form",
+                  id: "notification_form",
+                  width: 600,
+                  padding: 20,
+                  css: "webix_card",
+                  responsive: true,
+                  rules: {
+                    notification_frequency: webix.rules.isNotEmpty,
+                  },
+                  elements: [
+                    {
+                      view: "checkbox",
+                      labelRight: "Email Notifications",
+                      name: "email_notifications",
+                    },
+                    {
+                      view: "checkbox",
+                      labelRight: "Push Notifications",
+                      name: "push_notifications",
+                    },
+                    {
+                      view: "richselect",
+                      label: "Frequency",
+                      name: "notification_frequency",
+                      options: ["instant", "daily", "weekly"],
+                      css: "rounded-color-box",
+                    },
+                    {
+                      view: "button",
+                      value: "Save",
+                      align: "center",
+                      click: savePreferences,
+                      css: "save-button",
+                    },
+                  ],
                 },
-                {
-                  view: "checkbox",
-                  labelRight: "Push Notifications",
-                  name: "push_notifications",
-                },
-                {
-                  view: "richselect",
-                  label: "Frequency",
-                  name: "notification_frequency",
-                  options: ["instant", "daily", "weekly"],
-                  css: "rounded-box",
-                },
-                {
-                  view: "button",
-                  value: "Save",
-                  align: "center",
-                  click: savePreferences,
-                  css: "save-button",
-                },
+                { gravity: 1 },
               ],
             },
+            { gravity: 1 },
           ],
         },
         {
           id: "theme",
           rows: [
+            { gravity: 1 },
             {
-              view: "form",
-              id: "theme_form",
-              responsive: true,
-              elements: [
+              cols: [
+                { gravity: 1 },
                 {
-                  view: "text",
-                  label: "Theme Color",
-                  name: "theme_color",
-                  css: "rounded-box",
-                  labelWidth: 120,
+                  view: "form",
+                  id: "theme_form",
+                  width: 600,
+                  padding: 20,
+                  css: "webix_card",
+                  responsive: true,
+                  elements: [
+                    {
+                      view: "colorpicker",
+                      label: "Theme Color",
+                      name: "theme_color",
+                      css: "rounded-color-box",
+                      labelWidth: 120,
+                      stringResult: true,
+                      value: "#ffffff",
+                      suggest: {
+                        type: "colorboard",
+                      },
+                    },
+                    {
+                      view: "text",
+                      label: "Font Size",
+                      name: "font_size",
+                      css: "rounded-box",
+                      labelWidth: 120,
+                    },
+                    {
+                      view: "text",
+                      label: "Layout",
+                      name: "layout",
+                      css: "rounded-box",
+                      labelWidth: 120,
+                    },
+                    {
+                      view: "button",
+                      value: "Save",
+                      align: "center",
+                      click: savePreferences,
+                      css: "save-button",
+                    },
+                  ],
                 },
-                {
-                  view: "text",
-                  label: "Font Size",
-                  name: "font_size",
-                  css: "rounded-box",
-                  labelWidth: 120,
-                },
-                {
-                  view: "text",
-                  label: "Layout",
-                  name: "layout",
-                  css: "rounded-box",
-                  labelWidth: 120,
-                },
-                {
-                  view: "button",
-                  value: "Save",
-                  align: "center",
-                  click: savePreferences,
-                  css: "save-button",
-                },
+                { gravity: 1 },
               ],
             },
+            { gravity: 1 },
           ],
         },
         {
           id: "privacy",
           rows: [
+            { gravity: 1 },
             {
-              view: "form",
-              id: "privacy_form",
-              responsive: true,
-              elements: [
+              cols: [
+                { gravity: 1 },
                 {
-                  view: "checkbox",
-                  labelRight: "Profile Visible",
-                  name: "profile_visible",
+                  view: "form",
+                  id: "privacy_form",
+                  width: 600,
+                  padding: 20,
+                  css: "webix_card",
+                  responsive: true,
+                  elements: [
+                    {
+                      view: "checkbox",
+                      labelRight: "Profile Visible",
+                      name: "profile_visible",
+                    },
+                    {
+                      view: "checkbox",
+                      labelRight: "Data Sharing",
+                      name: "data_sharing",
+                    },
+                    {
+                      view: "button",
+                      value: "Save",
+                      align: "center",
+                      click: savePreferences,
+                      css: "save-button",
+                    },
+                  ],
                 },
-                {
-                  view: "checkbox",
-                  labelRight: "Data Sharing",
-                  name: "data_sharing",
-                },
-                {
-                  view: "button",
-                  value: "Save",
-                  align: "center",
-                  click: savePreferences,
-                  css: "save-button",
-                },
+                { gravity: 1 },
               ],
             },
+            { gravity: 1 },
           ],
         },
       ],

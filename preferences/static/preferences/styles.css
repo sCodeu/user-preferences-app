@@ -46,3 +46,12 @@
   background-color: red !important;
   cursor: pointer;
 }
+
+.webix_card {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  border-radius: 12px;
+}
+.rounded-color-box .webix_inp_static {
+  border-radius: 8px !important;
+}
